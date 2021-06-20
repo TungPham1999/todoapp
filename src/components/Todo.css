@@ -1,0 +1,80 @@
+.todo-list {
+  width: 48%;
+}
+.content-main {
+  height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.todo-row,
+.bulk-action {
+  height: 60px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+  margin-top: 12px;
+}
+.bulk-action {
+  padding: 0 20px;
+}
+.bulk-action .bulk-action-done,
+.bulk-action .bulk-action-remove {
+  height: 36px;
+  color: #ffffff;
+  text-align: center;
+  width: 110px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.bulk-action .bulk-action-done {
+  background: #2196f3;
+  margin-right: 20px;
+}
+.bulk-action .bulk-action-remove {
+  background: #d9534f;
+}
+.todo-row .todo-checkbox {
+  width: 10%;
+}
+.todo-row .todo-name {
+  width: 50%;
+  text-align: start;
+}
+.todo-row .todo-buttons {
+  width: 40%;
+  text-align: start;
+}
+
+.todo-row .button-action {
+  width: 92px;
+  font-size: 12px;
+  height: 30px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.action-detail {
+  background-color: #00bcd4;
+  margin-right: 20px;
+}
+.action-remove {
+  background-color: #d9534f;
+}
+.input-seach {
+  width: 99%;
+  height: 30px;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+@media screen and (max-width: 900px) {
+  .todo-list {
+    width: 100%;
+  }
+}

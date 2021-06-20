@@ -1,0 +1,17 @@
+.todo-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 70px;
+}
+.slash {
+  height: 100vh;
+  border: 0.5px solid #000;
+}
+@media screen and (max-width: 900px) {
+  .todo-wrap {
+    display: block;
+  }
+  .slash {
+    display: none;
+  }
+}
