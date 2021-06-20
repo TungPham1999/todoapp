@@ -14,6 +14,7 @@ function TodoList() {
     const newTodos = [...todos, todo];
 
     setTodos(newTodos);
+    window.alert("add task success");
   };
 
   const updateTodo = (todoId, newValue) => {
@@ -32,15 +33,22 @@ function TodoList() {
   };
   const updateTodoAll = (data) => {
     const key = "id";
-    const dataNew = todos.map((el) => {
+    let dataNew = todos.map((el) => {
       var found = data.find((s) => s[key] === el[key]);
       if (found) {
         el = Object.assign(el, found);
       }
       return el;
     });
-    console.log(dataNew);
+    dataNew = dataNew.map((r) => {
+      return {
+        ...r,
+        isChecked: false,
+        isUpdate: false,
+      };
+    });
     setTodos(dataNew);
+    window.alert("update task success");
   };
 
   const searchTodo = (search) => {
@@ -53,16 +61,7 @@ function TodoList() {
   const removeAllTodoChecked = () => {
     const removedArr = [...todos].filter((todo) => !todo.isChecked);
     setTodos(removedArr);
-  };
-
-  const completeTodo = (id) => {
-    let updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
+    window.alert("remove task success");
   };
 
   useEffect(() => {
@@ -86,7 +85,6 @@ function TodoList() {
       <div className="slash" />
       <Todo
         todos={filteredTodos}
-        completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
         searchTodo={searchTodo}

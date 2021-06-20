@@ -22,6 +22,9 @@ const Todo = ({
       setFakeTodos(items);
     }
   }, []);
+  useEffect(() => {
+    setFakeTodos(todos);
+  }, [todos]);
   const updateTodoFake = (todo) => {
     const index = fakeTodos.findIndex((r) => r.id === todo.id);
     if (index !== -1) {
@@ -61,14 +64,7 @@ const Todo = ({
     removeAllTodoChecked();
   };
   const doneAll = () => {
-    const dataNew = fakeTodos
-      .filter((r) => r.isChecked)
-      .map((r) => {
-        return {
-          ...r,
-          isChecked: false,
-        };
-      });
+    const dataNew = fakeTodos.filter((r) => r.isChecked);
     updateTodoAll(dataNew);
   };
   const listItems = todos.length ? (
@@ -79,7 +75,6 @@ const Todo = ({
             <input
               type="checkbox"
               name="isCheck"
-              key={index}
               checked={todo.isChecked}
               onChange={() => updateCheckbox(todo)}
             />
@@ -92,7 +87,7 @@ const Todo = ({
               className="button-action action-detail"
               onClick={() => showDetail(todo)}
             >
-              Detail
+              {todo.isUpdate ? "Hide" : "Detail"}
             </button>
             <button
               className="button-action action-remove"
