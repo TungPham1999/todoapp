@@ -11,17 +11,17 @@ side effect and clean up (optional)
 ### `How to work`
 
 Mounting: 
-1.rendering
-2.`useEffect()` run
+1. rendering
+2. `useEffect()` run
 
 Updating:
-1.rendering
-2.run `useEffect() cleanup` if dependencies change  
-3.run `useEffect()` if dependencies change
+1. rendering
+2. run `useEffect() cleanup` if dependencies change  
+3. run `useEffect()` if dependencies change
 
 
 Unmounting:
-1.run `useEffect() cleanup`
+1. run `useEffect() cleanup`
 
 ### `Dependencies`
 
@@ -45,9 +45,11 @@ Context solves the props drilling problem: when you have to pass down props from
 ### why do your context ?
 
 Problem: 
-1.Prop drilling is the processing of getting data from component A to component Z by passing it through multiple layers. So it make the project messed up. 2.Further, if you want to change state of function parent 1 from grade 10 of parent it, you need 10 functions to do it. That's ridiculous.
+1. Prop drilling is the processing of getting data from component A to component Z by passing it through multiple layers. So it make the project messed up. 
+2. Further, if you want to change state of function parent 1 from grade 10 of parent it, you need 10 functions to do it. That's ridiculous.
 
 Solution: Use context API.
+
 With problem 1:  Very simple, you set up a Context Provider and define the data you need to contain it. And get it with Context Consumer whenever you need to use the data in the store.
 With problem 2: We define a function on the state of the AppProvider context, and do the required updates onto the state data.
 Having the action defined we can use it through a AppContext.Consumer and call it in through any event.
