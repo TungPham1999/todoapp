@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+## 1.How `Use Effect()` work in simple way ?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `Concept`
 
-## Available Scripts
+is a hook handle side effects after a component renders
 
-In the project directory, you can run:
+### `Ingredient`
 
-### `yarn start`
+side effect and clean up (optional)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `How to work`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Mounting: 
+-rendering
+-`useEffect()` run
 
-### `yarn test`
+Updating:
+-rendering
+-run `useEffect() cleanup` if dependencies change  
+-run `useEffect()` if dependencies change
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+Unmounting:
+run `useEffect() cleanup`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Dependencies`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+if not have dependencies: run every after rendering
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+if dependencies are array: only executed side effect after the first render
 
-### `yarn eject`
+if dependencies are references: only executed side effect after the first render and when references change
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 2. About "Context" in React ?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What is this ?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### When you need context ? 
 
-## Learn More
+The main idea of using the context is to allow your components to access some global data and re-render when that global data is changed. 
+Context solves the props drilling problem: when you have to pass down props from parents to children.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### why do your context ?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Problem: 
+1.Prop drilling is the processing of getting data from component A to component Z by passing it through multiple layers. So it make the project messed up. 2.Further, if you want to change state of function parent 1 from grade 10 of parent it, you need 10 functions to do it. That's ridiculous.
 
-### Code Splitting
+Solution: Use context API.
+With problem 1:  Very simple, you set up a Context Provider and define the data you need to contain it. And get it with Context Consumer whenever you need to use the data in the store.
+With problem 2: We define a function on the state of the AppProvider context, and do the required updates onto the state data.
+Having the action defined we can use it through a AppContext.Consumer and call it in through any event.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Others
 
-### Analyzing the Bundle Size
+When I work with the Context API, I have a few things to keep in mind:
+You shouldn't be reaching for context to solve every state sharing problem that crosses your desk.
+Context does NOT have to be global to the whole app but can be applied to one part of your tree
+You can (and probably should) have multiple logically separated contexts in your app.
+If the version of your project is less than 16.3 you need to migrate the version to use this amazing feature of React
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 3. About project ?
 
-### Making a Progressive Web App
+1.About project you need close github of me, and `yarn` or `npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+So if I have errors in grammar and words, please contribute to me. THANKS
