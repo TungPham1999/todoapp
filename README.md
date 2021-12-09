@@ -11,17 +11,17 @@ side effect and clean up (optional)
 ### `How to work`
 
 Mounting: 
--rendering
--`useEffect()` run
+1.rendering
+2.`useEffect()` run
 
 Updating:
--rendering
--run `useEffect() cleanup` if dependencies change  
--run `useEffect()` if dependencies change
+1.rendering
+2.run `useEffect() cleanup` if dependencies change  
+3.run `useEffect()` if dependencies change
 
 
 Unmounting:
-run `useEffect() cleanup`
+1.run `useEffect() cleanup`
 
 ### `Dependencies`
 
