@@ -61,7 +61,7 @@ const Chart = ({ data, height, width, precision, stroke, type }) => {
     <svg viewBox={`0 0 ${width} ${height}`}>
       <XAxis />
       <YAxis />
-      {type === 'bar' && <BarChart stroke={stroke} data={dataConvert} />}
+      {type === 'bars' && <BarChart stroke={stroke} data={dataConvert} />}
       {type === 'line' && <LineChart stroke={stroke} points={points} />}
     </svg>
   );

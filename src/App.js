@@ -7,8 +7,8 @@ import { useState } from "react";
 
 function App() {
   const [dataChart, setDataChart] = useState("");
-  const [type, setType] = useState("bar");
-  const typesChart = ["line", "bar"];
+  const [type, setType] = useState("bars");
+  const typesChart = ["line", "bars"];
   const [color, setColor] = useState("#0074d9");
   return (
     <div className="App">
