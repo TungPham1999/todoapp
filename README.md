@@ -42,7 +42,7 @@ Context provides a way to pass data through the component tree without having to
 The main idea of using the context is to allow your components to access some global data and re-render when that global data is changed. 
 Context solves the props drilling problem: when you have to pass down props from parents to children.
 
-### why do your context ?
+### Why do your context ?
 
 Problem: 
 1. Prop drilling is the processing of getting data from component A to component Z by passing it through multiple layers. So it make the project messed up. 
