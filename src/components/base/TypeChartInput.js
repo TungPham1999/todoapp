@@ -1,8 +1,10 @@
 export const TypeChartInput = ({ type, typesChart, setType }) => {
   return (
-    <div>
+    <div className="form-group">
       <label>Type of chart: </label>
-      <select value={type} onChange={(e) => setType(e.target.value)}>
+      <select
+        className="form-control"
+        value={type} onChange={(e) => setType(e.target.value)}>
         {typesChart.map((option, index) => (
           <option value={option} key={index}>
             {option}

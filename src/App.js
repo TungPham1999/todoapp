@@ -2,12 +2,12 @@ import "./App.css";
 import { TypeChartInput } from "./components/base/TypeChartInput";
 import { ColorChartInput } from "./components/base/ColorChartInput";
 import { DataChartInput } from "./components/base/DataChartInput";
-import LineChart from "./components/chartElement/LineChart";
+import Chart from "./components/chartElement/Chart";
 import { useState } from "react";
 
 function App() {
   const [dataChart, setDataChart] = useState("");
-  const [type, setType] = useState("line");
+  const [type, setType] = useState("bar");
   const typesChart = ["line", "bar"];
   const [color, setColor] = useState("#0074d9");
   return (
@@ -25,7 +25,9 @@ function App() {
           <ColorChartInput color={color} setColor={setColor} />
           <DataChartInput dataChart={dataChart} setDataChart={setDataChart} />
         </div>
-        <LineChart data={dataChart} precision={0} stroke={color} />
+        <Chart data={dataChart} precision={0} stroke={color}
+          type={type}
+        />
       </main>
     </div>
   );
